@@ -13,6 +13,8 @@ QUIETY=false
 
 if [ "${MYNAME}" == "fred" ]; then
 	:
+elif [ "${MYNAME}" == "betty" ]; then
+	:
 elif [ "${MYNAME}" == "slate" ]; then
 	DIRLST=/home/ /projects/
 else
