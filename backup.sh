@@ -3,7 +3,7 @@
 MYNAME=`hostname -s`
 HDDBKP=/run/media/isaque/disk3/bkp/${MYNAME}
 NETBKP=/net/barney/home/media/bkp/${MYNAME}
-SYNCOM="rsync --delete --delete-excluded --exclude=\".*\" -av"
+SYNCOM="rsync --delete --delete-excluded --exclude=.* --exclude=lost+found -av"
 LSTFLG=-n
 NETFLG=-z
 DIRLST=/home/
