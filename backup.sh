@@ -11,6 +11,7 @@ DIRLST=/home/
 HDDNET=hdd
 COMMIT=false
 QUIETY=false
+PIDFIL=/tmp/backup.pid
 
 if [ "${MYNAME}" == "fred" ]; then
 	:
@@ -21,7 +22,7 @@ elif [ "${MYNAME}" == "slate" ]; then
 else
 	echo "I don't recognize this box!"
 	echo "I only support fred and slate."
-	exit 0;
+	exit 1;
 fi
 
 for i in $@; do
@@ -35,8 +36,18 @@ for i in $@; do
 		quiet)
 			QUIETY=true
 			;;
+		force)
+			rm ${PIDFIL}
+			;;
 	esac
 done
+
+if [ -f ${PIDFIL} ]; then
+	echo "Process `cat ${PIDFIL}` is already running."
+	exit 1
+fi
+
+echo ${$} > ${PIDFIL}
 
 if [ "${HDDNET}" == "hdd" ]; then
 	echo "Changes from: ${DIRLST}"
@@ -63,3 +74,6 @@ elif [ "${HDDNET}" == "net" ]; then
 		${SYNCOM} ${NETFLG} ${DIRLST} ${NETBKP}
 	fi
 fi
+
+rm ${PIDFIL}
+
