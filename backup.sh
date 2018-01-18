@@ -2,28 +2,16 @@
 
 MYNAME=`hostname -s`
 MYUSER=`whoami`
-HDDBKP=/run/media/${MYUSER}/disk3/bkp/${MYNAME}
-NETBKP=/net/barney/home/media/bkp/${MYNAME}
+HDDBKP=/run/media/${MYUSER}/disk3/bkp/${MYNAME}/${MYUSER}
+NETBKP=barney:/home/media/bkp/${MYNAME}/${MYUSER}
 SYNCOM="rsync --delete --delete-excluded --exclude=.* --exclude=lost+found -av"
 LSTFLG=-n
 NETFLG=-z
-DIRLST=/home/
+DIRLST=/home/${MYUSER}/
 HDDNET=hdd
 COMMIT=false
 QUIETY=false
 PIDFIL=/tmp/backup.pid
-
-if [ "${MYNAME}" == "fred" ]; then
-	:
-elif [ "${MYNAME}" == "betty" ]; then
-	:
-elif [ "${MYNAME}" == "slate" ]; then
-	DIRLST=/home/ /projects/
-else
-	echo "I don't recognize this box!"
-	echo "I only support fred and slate."
-	exit 1;
-fi
 
 for i in $@; do
 	case ${i} in
