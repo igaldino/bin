@@ -1,7 +1,8 @@
 #!/bin/sh
 
 MYNAME=`hostname -s`
-HDDBKP=/run/media/isaque/disk3/bkp/${MYNAME}
+MYUSER=`whoami`
+HDDBKP=/run/media/${MYUSER}/disk3/bkp/${MYNAME}
 NETBKP=/net/barney/home/media/bkp/${MYNAME}
 SYNCOM="rsync --delete --delete-excluded --exclude=.* --exclude=lost+found -av"
 LSTFLG=-n
