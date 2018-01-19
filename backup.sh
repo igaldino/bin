@@ -11,7 +11,7 @@ DIRLST=/home/${MYUSER}/
 HDDNET=hdd
 COMMIT=false
 QUIETY=false
-PIDFIL=/tmp/backup.pid
+PIDFIL=/tmp/backup-${MYUSER}.pid
 
 for i in $@; do
 	case ${i} in
