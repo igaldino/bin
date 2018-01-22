@@ -38,9 +38,12 @@ fi
 echo ${$} > ${PIDFIL}
 
 if [ "${HDDNET}" == "hdd" ]; then
-	echo "Changes from: ${DIRLST}"
- 	echo "          to: ${HDDBKP}"
-	${SYNCOM} ${LSTFLG} ${DIRLST} ${HDDBKP}
+	if [ "${QUIETY}" == "false" ]; then
+		echo "Changes from: ${DIRLST}"
+ 		echo "          to: ${HDDBKP}"
+		echo "     Command: ${SYNCOM} ${LSTFLG} ${DIRLST} ${HDDBKP}"
+		${SYNCOM} ${LSTFLG} ${DIRLST} ${HDDBKP}
+	fi
 
 	if [ "${COMMIT}" == "true" ]; then
 		if [ "${QUIETY}" == "false" ]; then
@@ -50,10 +53,12 @@ if [ "${HDDNET}" == "hdd" ]; then
 	fi
 
 elif [ "${HDDNET}" == "net" ]; then
-	echo "Changes from: ${DIRLST}"
- 	echo "          to: ${NETBKP}"
-	echo ${SYNCOM} ${LSTFLG} ${NETFLG} ${DIRLST} ${NETBKP}
-	${SYNCOM} ${LSTFLG} ${NETFLG} ${DIRLST} ${NETBKP}
+	if [ "${QUIETY}" == "false" ]; then
+		echo "Changes from: ${DIRLST}"
+ 		echo "          to: ${NETBKP}"
+		echo "     Command: ${SYNCOM} ${LSTFLG} ${NETFLG} ${DIRLST} ${NETBKP}"
+		${SYNCOM} ${LSTFLG} ${NETFLG} ${DIRLST} ${NETBKP}
+	fi
 
 	if [ "${COMMIT}" == "true" ]; then
 		if [ "${QUIETY}" == "false" ]; then
