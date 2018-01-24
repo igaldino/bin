@@ -37,6 +37,10 @@ fi
 
 echo ${$} > ${PIDFIL}
 
+# required to run on Archlinux
+eval `ssh-agent`
+ssh-add
+
 if [ "${HDDNET}" == "hdd" ]; then
 	if [ "${QUIETY}" == "false" ]; then
 		echo "Changes from: ${DIRLST}"
