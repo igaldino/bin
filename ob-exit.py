@@ -59,6 +59,7 @@ class MyWindow(Gtk.Window):
         response = self.are_you_sure()
         if response == Gtk.ResponseType.YES:
             subprocess.call(["openbox", "--exit"])
+            subprocess.call(["i3msg", "exit"])
         Gtk.main_quit()
 
     def on_reboot_clicked(self, widget):
