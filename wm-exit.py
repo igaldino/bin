@@ -17,6 +17,7 @@
 # $ systemctl suspend
 # $ systemctl hibernate
 
+import sys
 import gi
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
@@ -58,8 +59,13 @@ class MyWindow(Gtk.Window):
     def on_logout_clicked(self, widget):
         response = self.are_you_sure()
         if response == Gtk.ResponseType.YES:
-            subprocess.call(["openbox", "--exit"])
-            subprocess.call(["i3-msg", "exit"])
+            if len(sys.argv) > 1:
+                if sys.argv[1] == "openbox":
+                    subprocess.call(["openbox", "--exit"])
+                elif sys.argv[1] == "i3":
+                    subprocess.call(["i3-msg", "exit"])
+                else:
+                    print "wm-exit.py: you need to specify which window manager you are using (openbox or i3)"
         Gtk.main_quit()
 
     def on_reboot_clicked(self, widget):
