@@ -1,22 +1,4 @@
 #!/bin/python
-#
-# ob-exit.py by igaldino
-# ======================
-#
-# Power-off using dbus command line (old way)
-#
-# $ dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 "org.freedesktop.login1.Manager.PowerOff" boolean:true
-# $ dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 "org.freedesktop.login1.Manager.Reboot" boolean:true
-# $ dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 "org.freedesktop.login1.Manager.Suspend" boolean:true
-# $ dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 "org.freedesktop.login1.Manager.Hibernate" boolean:true
-#
-# Power-off using system-logind command line (new way)
-#
-# $ systemctl poweroff
-# $ systemctl reboot
-# $ systemctl suspend
-# $ systemctl hibernate
-
 import sys
 import gi
 gi.require_version('Gtk', '3.0')
