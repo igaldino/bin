@@ -67,13 +67,7 @@ class MyWindow(Gtk.Window):
     self.hide()
     response = self.are_you_sure("log out")
     if response == Gtk.ResponseType.YES:
-      if len(sys.argv) > 1:
-        if sys.argv[1] == "openbox":
-          subprocess.call(["openbox", "--exit"])
-        elif sys.argv[1] == "i3":
-          subprocess.call(["i3-msg", "exit"])
-        else:
-          print "wm-exit.py: you need to specify which window manager you are using (openbox or i3)"
+      subprocess.call(["openbox", "--exit"])
     Gtk.main_quit()
 
   def on_reboot_clicked(self, widget):
