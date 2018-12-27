@@ -68,6 +68,7 @@ class MyWindow(Gtk.Window):
     response = self.are_you_sure("log out")
     if response == Gtk.ResponseType.YES:
       subprocess.call(["openbox", "--exit"])
+      subprocess.call(["fluxbox-remote", "exit"])
     Gtk.main_quit()
 
   def on_reboot_clicked(self, widget):
