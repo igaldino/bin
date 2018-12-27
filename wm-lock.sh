@@ -1,5 +1,7 @@
 #!/bin/sh
 
-i3lock -i /usr/share/backgrounds/default.png -e -f
+WALLPAPER=`grep file ~/.config/nitrogen/bg-saved.cfg | awk -F "=" '{print $2}'`
+
+i3lock -i "${WALLPAPER}" -e -f
 sleep 10
 pgrep i3lock && xset dpms force off
