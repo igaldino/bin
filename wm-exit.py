@@ -75,6 +75,10 @@ class MyWindow(Gtk.Window):
         subprocess.call(["fluxbox-remote", "exit"])
       except OSError:
         pass
+      try:
+        subprocess.call(["i3-msg", "exit"])
+      except OSError:
+        pass
     Gtk.main_quit()
 
   def on_reboot_clicked(self, widget):
