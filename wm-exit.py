@@ -35,28 +35,28 @@ class MyWindow(Gtk.Window):
     self.buttonbox = Gtk.ButtonBox(orientation=Gtk.Orientation.VERTICAL, layout_style="start")
     self.box.pack_start(self.buttonbox, True, True, 0)
 
-    self.poweroff_image = Gtk.Image(icon_name="system-shutdown-symbolic")
+    self.poweroff_image = Gtk.Image(icon_name="system-shutdown")
 
     self.poweroff = Gtk.Button(label="Power-off", always_show_image=True)
     self.poweroff.set_image(self.poweroff_image)
     self.poweroff.connect("clicked", self.on_poweroff_clicked)
     self.buttonbox.pack_start(self.poweroff, True, True, 0)
 
-    self.reboot_image = Gtk.Image(icon_name="system-reboot-symbolic")
+    self.reboot_image = Gtk.Image(icon_name="system-reboot")
 
     self.reboot = Gtk.Button(label="Reboot", always_show_image=True)
     self.reboot.set_image(self.reboot_image)
     self.reboot.connect("clicked", self.on_reboot_clicked)
     self.buttonbox.pack_start(self.reboot, True, True, 0)
 
-    self.logout_image = Gtk.Image(icon_name="system-log-out-symbolic")
+    self.logout_image = Gtk.Image(icon_name="system-log-out")
 
     self.logout = Gtk.Button(label="Log Out", always_show_image=True)
     self.logout.set_image(self.logout_image)
     self.logout.connect("clicked", self.on_logout_clicked)
     self.buttonbox.pack_start(self.logout, True, True, 0)
 
-    self.cancel_image = Gtk.Image(icon_name="cancel-symbolic")
+    self.cancel_image = Gtk.Image(icon_name="cancel")
 
     self.cancel = Gtk.Button(label="Cancel", always_show_image=True)
     self.cancel.set_image(self.cancel_image)
