@@ -2,7 +2,7 @@
 
 MYNAME=`hostname -s`
 MYUSER=`whoami`
-HDDBKP=/run/media/${MYUSER}/disk3/bkp/${MYNAME}/${MYUSER}
+HDDBKP=/media/${MYUSER}/disk3/bkp/${MYNAME}/${MYUSER}
 NETBKP=barney:/home/media/bkp/${MYNAME}/${MYUSER}
 SYNCOM="rsync --delete --delete-excluded --exclude=.* --exclude=lost+found -av"
 LSTFLG=-n
@@ -37,11 +37,17 @@ fi
 
 echo ${$} > ${PIDFIL}
 
-# required to run on Archlinux
-eval `ssh-agent`
-ssh-add
-
 if [ "${HDDNET}" == "hdd" ]; then
+	if [ ! -d ${HDDBKP} ]; then
+		# /media failed
+		HDDBKP=/run${HDDBKP}
+		if [ ! -d ${HDDBKP} ]; then
+			# /run/media failed too
+			echo "Please connect USB drive."
+			exit 1
+		fi
+	fi
+
 	if [ "${QUIETY}" == "false" ]; then
 		echo "Changes from: ${DIRLST}"
  		echo "          to: ${HDDBKP}"
