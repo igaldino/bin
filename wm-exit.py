@@ -26,13 +26,16 @@ class MyWindow(Gtk.Window):
     self.box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=6)
     self.add(self.box)
 
+    self.headerbox = Gtk.ButtonBox(orientation=Gtk.Orientation.HORIZONTAL, layout_style="start")
+    self.box.pack_start(self.headerbox, True, True, 0)
+
     self.image = Gtk.Image(stock="gtk-quit", icon_size=6)
-    self.box.pack_start(self.image, True, True, 0)
+    self.headerbox.pack_start(self.image, True, True, 0)
 
     self.message = Gtk.Label("What do you want to do?")
-    self.box.pack_start(self.message, True, True, 0)
+    self.headerbox.pack_start(self.message, True, True, 0)
 
-    self.buttonbox = Gtk.ButtonBox(orientation=Gtk.Orientation.VERTICAL, layout_style="start")
+    self.buttonbox = Gtk.ButtonBox(orientation=Gtk.Orientation.HORIZONTAL, layout_style="start")
     self.box.pack_start(self.buttonbox, True, True, 0)
 
     self.poweroff_image = Gtk.Image(icon_name="system-shutdown")
