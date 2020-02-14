@@ -1,5 +1,5 @@
 #!/bin/bash
-. bkp-setup.sh
+. ~/etc/duplicity/bkp-setup.sh
 duplicity \
 	--include-filelist ${GD_FILELIST} \
 	${GD_LOCAL_FOLDER} \

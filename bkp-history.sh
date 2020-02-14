@@ -1,4 +1,4 @@
 #!/bin/bash
-. bkp-setup.sh
+. ~/etc/duplicity/bkp-setup.sh
 duplicity collection-status ${GD_REMOTE_FOLDER}
 
