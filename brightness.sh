@@ -3,12 +3,14 @@
 BRIGHTLIGHT=`which brightlight`
 XBACKLIGHT=`which xbacklight`
 
-if [ ${#} != "2" ]; then
+if [ ${#} != "2" ]
+then
 	echo "Usage: ${0} <inc|dec> <value>"
 	exit 1
 fi
 
-if [ -f ${BRIGHTLIGHT} ]; then
+if [ -n "${BRIGHTLIGHT}" ]
+then
 	case ${1} in
 		inc)
 			brightlight -p -i ${2}
@@ -17,7 +19,8 @@ if [ -f ${BRIGHTLIGHT} ]; then
 			brightlight -p -d ${2}
 			;;
 	esac
-elif [ -f ${XBACKLIGHT} ]; then
+elif [ -n "${XBACKLIGHT}" ]
+then
 	case ${1} in
 		inc)
 			xbacklight -inc ${2}
