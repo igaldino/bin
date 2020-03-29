@@ -4,7 +4,7 @@ MYNAME=`hostname -s`
 MYUSER=`whoami`
 HDDBKP=/media/${MYUSER}/disk3/bkp/${MYNAME}/${MYUSER}
 NETBKP=barney:/home/media/bkp/${MYNAME}/${MYUSER}
-SYNCOM="rsync --delete --delete-excluded --exclude=.* --exclude=lost+found -av"
+SYNCOM="rsync --delete --delete-excluded --exclude=.* --exclude=lost+found --exclude=ISOs -av"
 LSTFLG=-n
 NETFLG=-z
 DIRLST=/home/${MYUSER}/
