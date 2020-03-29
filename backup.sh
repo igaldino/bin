@@ -43,7 +43,8 @@ if [ "${HDDNET}" == "hdd" ]; then
 		HDDBKP=/run${HDDBKP}
 		if [ ! -d ${HDDBKP} ]; then
 			# /run/media failed too
-			echo "Please connect USB drive."
+			echo "Please connect USB drive in ${HDDBKP}."
+			rm ${PIDFIL}
 			exit 1
 		fi
 	fi
