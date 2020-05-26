@@ -2,8 +2,8 @@
 
 MYNAME=`hostname -s`
 MYUSER=`whoami`
-HDDBKP=/media/${MYUSER}/disk3/bkp/${MYNAME}/${MYUSER}/
-NETBKP=barney:/home/media/bkp/${MYNAME}/${MYUSER}/
+HDDBKP=/media/${MYUSER}/disk3/backups/${MYNAME}/${MYUSER}/
+NETBKP=barney:/home/media/backups/${MYNAME}/${MYUSER}/
 SYNCOM="rsync -av"
 LSTFLG=-n
 NETFLG=-z
