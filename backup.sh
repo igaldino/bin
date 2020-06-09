@@ -4,7 +4,7 @@ MYNAME=`hostname -s`
 MYUSER=`whoami`
 HDDBKP=/media/${MYUSER}/disk3/backups/${MYNAME}/${MYUSER}
 NETBKP=barney:/home/media/backups/${MYNAME}/${MYUSER}
-SYNCOM="rsync --delete --delete-excluded --include=.git --exclude=.* --exclude=lost+found --exclude=ISOs -av"
+SYNCOM="rsync --delete --delete-excluded --include=.git --include=.gitignore --exclude=.* --exclude=lost+found --exclude=ISOs -av"
 LSTFLG=-n
 NETFLG=-z
 DIRLST=/home/${MYUSER}/
