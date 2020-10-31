@@ -4,7 +4,7 @@ MYNAME=`hostname -s`
 MYUSER=`whoami`
 HDDBKP=/media/${MYUSER}/disk3/backups/${MYNAME}/${MYUSER}
 NETBKP=barney:/home/media/backups/${MYNAME}/${MYUSER}
-SYNCOM="rsync --delete --delete-excluded --include=.git --include=.gitconfig --include=.gitignore --exclude=.* --exclude=lost+found --exclude=ISOs -av"
+SYNCOM="rsync --delete --delete-excluded --include=.git --include=.gitconfig --include=.gitignore --include=.minecraft --include=.minetest --include=.config/Genymobile --include=.config/openttd --include=.config/VirtualBox --include=.config/gnome-boxes --include=.local/share/gnome-boxes --include=.local/share/openttd --include=.config/lutris --include=.local/share/lutris --include=.local/share/Steam --include=.openttd --include=.steam --include=.steampath --include=.steampid --include=.var/app/info.febvre.Komikku --include=.var/app/com.mojang.Minecraft --include=.var/app/org.openttd.OpenTTD --include=.var/app/org.tlauncher.TLauncher --include=.wine --include=.Genymobile --exclude=.* --exclude=lost+found --exclude=ISOs -av"
 LSTFLG=-n
 NETFLG=-z
 DIRLST=/home/${MYUSER}/
