@@ -13,14 +13,15 @@ APPS=
 PACKAGES="${BASE} ${GNOME} ${APPS}"
 
 sgdisk --zap-all ${DEVICE}
+sgdisk -n 0:0:+1MiB -t 0:ef02 -c 0:boot ${DEVICE}
 sgdisk -n 0:0:-${SWAPGB}GiB -t 0:8300 -c 0:root ${DEVICE}
 sgdisk -n 0:0:0 -t 0:8200 -c 0:swap ${DEVICE}
 
-mkfs.btrfs ${DEVICE}1
-mkswap ${DEVICE}2
+mkfs.btrfs ${DEVICE}2
+mkswap ${DEVICE}3
 
-mount ${DEVICE}1 /mnt
-swapon ${DEVICE}2
+mount ${DEVICE}2 /mnt
+swapon ${DEVICE}3
 
 pacstrap /mnt ${PACKAGES}
 
@@ -35,8 +36,7 @@ arch-chroot /mnt echo "LANG=pt_BR.UTF-8" > /etc/locale.conf
 
 arch-chroot /mnt echo "KEYMAP=${KEYMAP}" > /etc/vconsole.conf
 
-arch-chroot /mnt grub-install --target=i386-pc --recheck /dev/sda
-arch-chroot /mnt sed -i "s/quiet/quiet splash/1" /etc/default/grub
+arch-chroot /mnt grub-install --target=i386-pc --recheck ${DEVICE}
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 
 arch-chroot /mnt useradd -m -G wheel isaque
