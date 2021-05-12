@@ -15,7 +15,7 @@ class MyWindow(Gtk.Window):
     self.set_resizable(False)
     self.set_keep_above(True)
     self.set_urgency_hint(True)
-    self.set_border_width(10)
+    self.set_decorated(False)
     self.stick()
 
     accel = Gtk.AccelGroup()
@@ -25,15 +25,6 @@ class MyWindow(Gtk.Window):
 
     self.box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=6)
     self.add(self.box)
-
-    self.headerbox = Gtk.ButtonBox(orientation=Gtk.Orientation.HORIZONTAL, layout_style="start")
-    self.box.pack_start(self.headerbox, True, True, 0)
-
-    self.image = Gtk.Image(stock="gtk-quit", icon_size=6)
-    self.headerbox.pack_start(self.image, True, True, 0)
-
-    self.message = Gtk.Label("What do you want to do?")
-    self.headerbox.pack_start(self.message, True, True, 0)
 
     self.buttonbox = Gtk.ButtonBox(orientation=Gtk.Orientation.HORIZONTAL, layout_style="start")
     self.box.pack_start(self.buttonbox, True, True, 0)
@@ -59,7 +50,7 @@ class MyWindow(Gtk.Window):
     self.logout.connect("clicked", self.on_logout_clicked)
     self.buttonbox.pack_start(self.logout, True, True, 0)
 
-    self.cancel_image = Gtk.Image(icon_name="cancel")
+    self.cancel_image = Gtk.Image(icon_name="dialog-cancel")
 
     self.cancel = Gtk.Button(label="Cancel", always_show_image=True)
     self.cancel.set_image(self.cancel_image)
