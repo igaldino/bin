@@ -17,10 +17,10 @@ APPS="gvfs-mtp gvfs-gphoto2 ffmpegthumbnailer gst-libav gst-plugins-ugly firefox
 #PACKAGES="${BASE}"
 #PACKAGES="${BASE} ${XORG} ${I3WM}"
 #PACKAGES="${BASE} ${XORG} ${I3WM} ${APPS}"
-#PACKAGES="${BASE} ${XORG} ${XFCE}"
+PACKAGES="${BASE} ${XORG} ${XFCE}"
 #PACKAGES="${BASE} ${XORG} ${XFCE} ${APPS}"
 #PACKAGES="${BASE} ${GNOME}"
-PACKAGES="${BASE} ${GNOME} ${APPS}"
+#PACKAGES="${BASE} ${GNOME} ${APPS}"
 
 sgdisk --zap-all ${DEVICE}
 sgdisk -n 0:0:-${SWAPGB}GiB -t 0:8300 -c 0:root ${DEVICE}
@@ -59,6 +59,4 @@ arch-chroot /mnt systemctl enable gdm
 arch-chroot /mnt systemctl enable NetworkManager
 
 umount -R /mnt
-
-reboot
 
