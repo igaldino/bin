@@ -33,6 +33,8 @@ mkswap ${DEVICE}3
 mount ${DEVICE}2 /mnt
 swapon ${DEVICE}3
 
+reflector --country Brazil --sort rate --save /etc/pacman.d/mirrorlist
+
 pacstrap /mnt ${PACKAGES}
 
 genfstab -U /mnt >> /mnt/etc/fstab
