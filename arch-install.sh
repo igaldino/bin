@@ -1,6 +1,6 @@
 #!/bin/sh
 
-DEVICE=/dev/vda
+DEVICE=/dev/sda
 KEYMAP=us-acentos
 SWAPGB=2
 HOSTNAME=stuart
@@ -23,14 +23,15 @@ PACKAGES="${BASE} ${XORG} ${XFCE}"
 #PACKAGES="${BASE} ${GNOME} ${APPS}"
 
 sgdisk --zap-all ${DEVICE}
+sgdisk -n 0:0:+1MiB -t 0:ef02 -c 0:boot ${DEVICE}
 sgdisk -n 0:0:-${SWAPGB}GiB -t 0:8300 -c 0:root ${DEVICE}
 sgdisk -n 0:0:0 -t 0:8200 -c 0:swap ${DEVICE}
 
-mkfs.ext4 ${DEVICE}1
-mkswap ${DEVICE}2
+mkfs.ext4 ${DEVICE}2
+mkswap ${DEVICE}3
 
-mount ${DEVICE}1 /mnt
-swapon ${DEVICE}2
+mount ${DEVICE}2 /mnt
+swapon ${DEVICE}3
 
 pacstrap /mnt ${PACKAGES}
 
