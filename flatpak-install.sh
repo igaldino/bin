@@ -1,6 +1,6 @@
 #!/bin/sh
 
-BASIC="com.github.calo001.fondo org.gtk.Gtk3theme.Arc-Dark org.gtk.Gtk3theme.Arc-Darker org.libreoffice.LibreOffice org.mozilla.firefox"
+BASIC="com.github.calo001.fondo org.gtk.Gtk3theme.Arc-Dark org.gtk.Gtk3theme.Arc-Darker org.keepassxc.KeePassXC org.libreoffice.LibreOffice org.mozilla.firefox"
 DEVEL="com.visualstudio.code org.eclipse.Java org.gnome.Builder"
 GAMES="com.endlessnetwork.aqueducts com.mojang.Minecraft com.play0ad.zeroad com.valvesoftware.Steam net.minetest.Minetest org.supertuxproject.SuperTux"
 LEARN="edu.mit.Scratch"
