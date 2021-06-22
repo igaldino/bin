@@ -106,7 +106,7 @@ if [ "${DESKTOP}" == "GNOME" ]; then
 else
   arch-chroot /mnt systemctl enable lightdm
   arch-chroot /mnt mkdir -p /etc/X11/xorg.conf.d
-cat<<EOF | arch-chroot /mnt tee -a /etc/X11/xorg.conf.d/30-touchpad.conf
+cat<<EOF | arch-chroot /mnt tee /etc/X11/xorg.conf.d/30-touchpad.conf
 Section "InputClass"
   Identifier "libinput touchpad catchall"
   Driver "libinput"
