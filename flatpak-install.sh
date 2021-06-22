@@ -7,6 +7,9 @@ LEARN="edu.mit.Scratch"
 MEDIA="com.obsproject.Studio com.spotify.Client fr.handbrake.ghb info.febvre.Komikku org.audacityteam.Audacity org.kde.kdenlive"
 OTHER="com.skype.Client org.gnome.Boxes org.gnome.Fractal org.telegram.desktop"
 
+# Firefox Font Fix
+FFFFX="${HOME}/.var/app/org.mozilla.firefox/config/fontconfig/fonts.conf"
+
 if [ ${#} -eq 0 ]
 then
 	echo "Usage: ${0} <basic | devel | games | learn | media | other>"
@@ -51,4 +54,23 @@ then
   flatpak install -y gnome-nightly org.gnome.Sdk org.gnome.Platform
 fi
 
-
+if [ ! -f ${FFFFX} ]
+then
+  mkdir -p ${FFFFX%/*}
+cat<<EOF | tee ${FFFFX}
+<?xml version='1.0'?>
+<!DOCTYPE fontconfig SYSTEM 'fonts.dtd'>
+<fontconfig>
+  <!-- Disable bitmap fonts. -->
+  <selectfont>
+    <rejectfont>
+      <pattern>
+        <patelt name="scalable">
+          <bool>false</bool>
+        </patelt>
+      </pattern>
+    </rejectfont>
+  </selectfont>
+</fontconfig>
+EOF
+fi
