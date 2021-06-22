@@ -7,7 +7,7 @@ LEARN="edu.mit.Scratch"
 MEDIA="com.obsproject.Studio com.spotify.Client fr.handbrake.ghb info.febvre.Komikku org.audacityteam.Audacity org.kde.kdenlive"
 OTHER="com.skype.Client org.gnome.Boxes org.gnome.Fractal org.telegram.desktop"
 
-if [ ${#} == "0" ]
+if [ ${#} -eq 0 ]
 then
 	echo "Usage: ${0} <basic | devel | games | learn | media | other>"
 	echo "  basic: ${BASIC}"
