@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 BASIC="com.github.calo001.fondo org.gtk.Gtk3theme.Arc-Dark org.gtk.Gtk3theme.Arc-Darker org.keepassxc.KeePassXC org.libreoffice.LibreOffice org.mozilla.firefox"
 DEVEL="com.visualstudio.code org.eclipse.Java org.gnome.Builder"
