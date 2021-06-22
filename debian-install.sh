@@ -1,6 +1,6 @@
 #!/bin/sh
 
-apt install -y arc-theme flatpak fonts-ubuntu git gvfs-backends papirus-icon-theme redshift-gtk rsync tlp tlp-rdw unrar
+apt install -y arc-theme breeze-cursor-theme flatpak fonts-ubuntu git gvfs-backends lightdm-gtk-greeter-settings papirus-icon-theme redshift-gtk rsync tlp tlp-rdw unrar
 
 mkdir -p /etc/X11/xorg.conf.d
 cat<<EOF | tee -a /etc/X11/xorg.conf.d/30-touchpad.conf
