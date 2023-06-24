@@ -9,6 +9,7 @@ rclone sync --stats-one-line -v --skip-links \
   --exclude=**/builddir/** \
   --exclude=.cache/** \
   --exclude=.config/** \
+  --exclude=eclipse/** \
   --exclude=**/.git/** \
   --exclude=**/java-runtime/** \
   --exclude=.local/** \
