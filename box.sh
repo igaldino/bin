@@ -19,5 +19,6 @@ rclone sync --stats-one-line -v --skip-links \
   --exclude=.npm/** \
   --exclude=.steam/** \
   --exclude=.var/** \
+  --exclude=**/WebSphere/** \
   --exclude=.wine/** \
 
