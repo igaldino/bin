@@ -6,6 +6,7 @@ TIME=`date +%Y%m%d%H%M`
 
 rclone sync --stats-one-line -v --skip-links \
   ${HOME} box:bkp/${HOST} \
+  --exclude=*.iso \
   --exclude=**/.angular/** \
   --exclude=bkp/** \
   --exclude=**/builddir/** \
