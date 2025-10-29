@@ -15,6 +15,7 @@ rclone sync --stats-one-line -v --skip-links \
   --exclude=.cisco/** \
   --exclude=.config/** \
   --exclude=eclipse/** \
+  --exclude=GitHub/** \
   --exclude=**/.git/** \
   --exclude=**/java-runtime/** \
   --exclude=.local/** \
